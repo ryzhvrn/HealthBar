@@ -493,7 +493,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 194557389}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: OnHeal
+        m_MethodName: Heal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1133,7 +1133,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 194557389}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: OnDamage
+        m_MethodName: Damage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

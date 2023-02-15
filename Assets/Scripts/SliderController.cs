@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class SliderController : MonoBehaviour
 {
-    public Slider _slider;
-    public Player Player;
+    [SerializeField] private Slider _slider;
+    [SerializeField] private Player Player;
 
-    public Coroutine Coroutine;
+    [SerializeField] private Coroutine Coroutine;
 
     private void OnHealthChanged(float health)
     {
@@ -24,7 +24,7 @@ public class SliderController : MonoBehaviour
 
     private IEnumerator Changing(float health)
     {
-        while (Mathf.Abs(_slider.value - health) > 0.2f)
+        while (Mathf.Abs(_slider.value - health) > .2f)
         {
             _slider.value = Mathf.MoveTowards(_slider.value, health, 0.1f);
 

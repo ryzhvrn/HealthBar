@@ -14,13 +14,13 @@ public class Player : MonoBehaviour
 
     public float Health => _health;
 
-    public void OnHeal()
+    public void Heal()
     {
         _health += DamageInstance;
         HealthChanged?.Invoke(Health);
     }
 
-    public void OnDamage()
+    public void Damage()
     {
         _health -= DamageInstance;
         HealthChanged?.Invoke(Health);
