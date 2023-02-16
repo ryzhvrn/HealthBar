@@ -4,7 +4,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBarController : MonoBehaviour
+public class HealthBar : MonoBehaviour
 {
     [SerializeField] private Slider _slider;
     [SerializeField] private Player Player;
@@ -12,6 +12,16 @@ public class HealthBarController : MonoBehaviour
     [SerializeField] private Coroutine Coroutine;
 
     private float _recoveryRate = 0.1f;
+
+    private void OnEnable()
+    {
+        Player.HealthChanged += OnHealthChanged;
+    }
+
+    private void OnDisable()
+    {
+        Player.HealthChanged -= OnHealthChanged;
+    }
 
     private void OnHealthChanged(float health)
     {
@@ -32,15 +42,5 @@ public class HealthBarController : MonoBehaviour
 
             yield return null;
         }
-    }
-
-    private void OnEnable()
-    {
-        Player.HealthChanged += OnHealthChanged;
-    }
-
-    private void OnDisable()
-    {
-        Player.HealthChanged -= OnHealthChanged;
     }
 }
