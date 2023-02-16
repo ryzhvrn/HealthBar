@@ -4,12 +4,14 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SliderController : MonoBehaviour
+public class HealthBarController : MonoBehaviour
 {
     [SerializeField] private Slider _slider;
     [SerializeField] private Player Player;
 
     [SerializeField] private Coroutine Coroutine;
+
+    private float _recoveryRate = 0.1f;
 
     private void OnHealthChanged(float health)
     {
@@ -26,7 +28,7 @@ public class SliderController : MonoBehaviour
     {
         while (Mathf.Abs(_slider.value - health) > .2f)
         {
-            _slider.value = Mathf.MoveTowards(_slider.value, health, 0.1f);
+            _slider.value = Mathf.MoveTowards(_slider.value, health, _recoveryRate);
 
             yield return null;
         }

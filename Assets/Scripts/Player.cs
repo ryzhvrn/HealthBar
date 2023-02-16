@@ -8,11 +8,17 @@ public class Player : MonoBehaviour
     public const float DamageInstance = 10f;
     public const float MaxHealth = 100f;
 
-    public event Action<float> HealthChanged;
-
     private float _health;
 
+    public event Action<float> HealthChanged;
+
     public float Health => _health;
+
+    private void Start()
+    {
+        _health = 50;
+        HealthChanged?.Invoke(Health);
+    }
 
     public void Heal()
     {
@@ -23,12 +29,6 @@ public class Player : MonoBehaviour
     public void Damage()
     {
         _health -= DamageInstance;
-        HealthChanged?.Invoke(Health);
-    }
-
-    private void Start()
-    {
-        _health = 50;
         HealthChanged?.Invoke(Health);
     }
 }
